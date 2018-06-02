@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "A simple game built for machine learning experiments.",
   "scripts": {
-    "start": "webpack-dev-server --mode development --progress --inline --hot --open",
+    "start": "npm test && webpack-dev-server --mode development --progress --inline --hot --open",
     "build": "webpack --mode production --progress --profile",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
