@@ -1,0 +1,32 @@
+{
+  "name": "reflecto",
+  "version": "1.0.0",
+  "description": "A simple game built for machine learning experiments.",
+  "scripts": {
+    "build": "webpack --mode development --watch --progress --profile",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oranyelik/reflecto.git"
+  },
+  "keywords": [
+    "p5",
+    "machine-learning",
+    "game"
+  ],
+  "author": "oranyelik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oranyelik/reflecto/issues"
+  },
+  "homepage": "https://github.com/oranyelik/reflecto#readme",
+  "dependencies": {
+    "jest": "^23.1.0",
+    "p5": "^0.6.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1"
+  }
+}
