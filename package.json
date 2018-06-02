@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A simple game built for machine learning experiments.",
   "scripts": {
+    "clean": "rimraf node_modules & rimraf dist & rimraf coverage",
     "start": "npm test && webpack-dev-server --mode development --progress --inline --hot --open",
-    "build": "webpack --mode production --progress --profile",
+    "build": "npm run clean && webpack --mode production --progress --profile",
     "test": "jest --coverage",
     "watch": "jest --watchAll"
   },
@@ -24,12 +25,13 @@
   },
   "homepage": "https://github.com/oranyelik/reflecto#readme",
   "dependencies": {
-    "jest": "^23.1.0",
     "p5": "^0.6.1"
   },
   "devDependencies": {
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.1.0",
+    "rimraf": "^2.6.2",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
     "webpack-dev-server": "^3.1.4"
