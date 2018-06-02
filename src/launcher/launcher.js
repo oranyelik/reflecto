@@ -1,5 +1,9 @@
 class Launcher {
     constructor(p5, x, y) {
+        this.p5 = p5
+        this.x = x
+        this.y = y
+
         this.angle = 0
         this.rotation = 0
     }
@@ -12,7 +16,7 @@ class Launcher {
 
     /* istanbul ignore next */
     show() {
-        p5.ellipse(x, y, 20)
+        this.p5.ellipse(this.x, this.y, 20)
     }
 }
 

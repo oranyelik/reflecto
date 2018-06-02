@@ -11,3 +11,9 @@ git clone https://github.com/oranyelik/reflecto.git
 cd reflecto
 npm i
 ```
+
+## Start
+`npm start`
+
+## Test
+`npm test` or `npm run watch`
