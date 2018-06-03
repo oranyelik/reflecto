@@ -23,15 +23,21 @@ class Launcher {
         this.p5.noStroke()
         this.p5.ellipse(this.pos.x, this.pos.y, 20)
 
-        // at some point it would be great to make the LINE into a TRIANGLE
-        // see: https://p5js.org/reference/#/p5/triangle
-        const dx = pointerLength * Math.cos(this.angle)
-        const dy = pointerLength * Math.sin(this.angle)
-        const pointer = new this.p5.createVector(this.pos.x + dx, this.pos.y + dy)
-
         this.p5.stroke(255)
         this.p5.strokeWeight(2)
-        this.p5.line(this.pos.x, this.pos.y, pointer.x, pointer.y)
+
+        this.p5.push()
+        this.p5.translate(this.pos.x, this.pos.y)
+        this.p5.rotate(this.angle)
+
+        // draw a triangle
+        this.p5.beginShape()
+        this.p5.vertex(pointerLength, 0)
+        this.p5.vertex(0, -6)
+        this.p5.vertex(0, 6)
+        this.p5.endShape(this.p5.CLOSE)
+
+        this.p5.pop()
     }
 }
 
