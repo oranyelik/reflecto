@@ -1,14 +1,16 @@
 import p5 from 'p5'
 import Launcher from './launcher/launcher'
 import Laser from './laser/laser'
+import Reflector from './reflector/reflector'
 
-let launcher, laser
+let launcher, laser, reflector
 
 const sketch = p5 => {
     p5.setup = () => {
         p5.createCanvas(800, 600)
 
         launcher = new Launcher(p5, 20, 20)
+        reflector = new Reflector(p5, 250, 100, 50, 80)
     }
 
     p5.draw = () => {
@@ -21,6 +23,8 @@ const sketch = p5 => {
             laser.update()
             laser.show()
         }
+
+        reflector.show()
     }
 
     p5.keyPressed = () => {
