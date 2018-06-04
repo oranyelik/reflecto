@@ -10,7 +10,7 @@ const sketch = p5 => {
         p5.createCanvas(800, 600)
 
         launcher = new Launcher(p5, 20, 20)
-        reflector = new Reflector(p5, 250, 100, 50, 80)
+        reflector = new Reflector(p5, 80, 20, 175, 200)
     }
 
     p5.draw = () => {
@@ -21,6 +21,7 @@ const sketch = p5 => {
 
         if (laser) {
             laser.update()
+            laser.reflect(reflector)
             laser.show()
         }
 
