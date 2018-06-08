@@ -3,14 +3,19 @@ import Launcher from './launcher/launcher'
 import Laser from './laser/laser'
 import Reflector from './reflector/reflector'
 
-let launcher, laser, reflector
+let launcher, laser, reflectors
 
 const sketch = p5 => {
     p5.setup = () => {
         p5.createCanvas(800, 600)
+        p5.angleMode(p5.DEGREES)
 
         launcher = new Launcher(p5, 20, 20)
-        reflector = new Reflector(p5, 80, 20, 175, 200)
+
+        reflectors = []
+        reflectors.push(new Reflector(p5, 500, 20, 550, 200))
+        reflectors.push(new Reflector(p5, 250, 350, 375, 300))
+        reflectors.push(new Reflector(p5, 50, 400, 300, 500))
     }
 
     p5.draw = () => {
@@ -20,16 +25,21 @@ const sketch = p5 => {
         launcher.show()
 
         if (laser) {
+            for (let reflector of reflectors) {
+                laser.reflect(reflector)
+            }
+
             laser.update()
-            laser.reflect(reflector)
             laser.show()
         }
 
-        reflector.show()
+        for (let reflector of reflectors) {
+            reflector.show()
+        }
     }
 
     p5.keyPressed = () => {
-        const rotationAmount = 0.05
+        const rotationAmount = 0.5
 
         switch (p5.keyCode) {
             case p5.LEFT_ARROW:

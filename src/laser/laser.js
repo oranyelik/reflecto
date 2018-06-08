@@ -6,7 +6,14 @@ class Laser {
         this.velocity = vel
     }
 
+    applyForce(force) {
+        this.acceleration = force
+    }
+
     update() {
+        this.velocity.add(this.acceleration)
+        this.acceleration = 0
+
         this.position.add(this.velocity)
     }
 
@@ -18,7 +25,21 @@ class Laser {
 
         const differenceMargin = distAC + distBC - distAB
         if (Math.abs(differenceMargin) <= 2) {
-            this.velocity.mult(-1)
+            // this.p5.push()
+
+            // const newX = Math.abs(this.velocity.x) > Math.abs(this.velocity.y) ? this.velocity.x : 0
+            // const newY = Math.abs(this.velocity.y) > Math.abs(this.velocity.x) ? this.velocity.y : 0
+            // const angle = this.p5.createVector(newX, newY)
+            // angle.rotate(reflector.angle)
+
+            const angle = this.p5.createVector(10, 0)
+            angle.rotate(-this.p5.PI / 2)
+
+            this.applyForce(-reflector.angle)
+            console.log('REFLECTOR ANGLE', reflector.angle);
+            // console.log('APPLYING FORCE AT ANGLE', angle);
+            
+            // this.p5.pop()
         }
     }
 
